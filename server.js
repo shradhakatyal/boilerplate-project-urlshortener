@@ -14,7 +14,7 @@ require('dotenv').config();
 var app = express();
 
 // Basic Configuration 
-var port = process.env.PORTs;
+var port = process.env.PORT;
 
 /** this project needs a db !! **/
 mongoose.connect(process.env.MONGOLAB_URI, function(err) {
