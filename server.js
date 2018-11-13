@@ -17,7 +17,9 @@ var app = express();
 var port = process.env.PORTs;
 
 /** this project needs a db !! **/
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI, function(err) {
+  if(err) throw err;
+});
 
 app.use(cors());
 
