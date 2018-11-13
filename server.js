@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var validUrl = require('valid-url');
+var dns = require('dns');
 
 var cors = require('cors');
 require('dotenv').config();
@@ -50,6 +51,7 @@ app.get('/', function (req, res) {
 app.post('/api/shorturl/new', function (req, res) {
   var URL = req.body.url;
   var id = randomUrl();
+
   Url.findOne({
     url: URL
   }, function (err, doc) {
@@ -116,7 +118,7 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("*", function(req, res) {
-  res.sned("Page not found");
+  res.send("Page not found");
 });
 
 
